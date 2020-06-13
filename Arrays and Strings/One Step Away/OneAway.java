@@ -1,13 +1,25 @@
 package com.chapter.arraysandstrings;
 
+import java.util.Scanner;
+
 import com.util.Util;
 
 public class OneAway {
 
 	public static void main(String[] args) {
-		String input1 = "asdf";
-		String input2 = "adf";
-		System.out.println("Given input strings are one edit away : " + isOneStepAway(input1, input2));
+		Scanner sc = null;
+		try {
+			sc = new Scanner(System.in);
+			String firstString = sc.nextLine();
+			String secondString = sc.nextLine();
+			System.out.println("Given input strings are one edit away : " + isOneStepAway(firstString, secondString));
+		} catch (Exception ex) {
+			System.out.println("Exception due to .." + ex.getMessage());
+		} finally {
+			if (null != sc) {
+				sc.close();
+			}
+		}
 	}
 	
 	public static boolean isOneStepAway(String st1, String st2){
@@ -16,10 +28,12 @@ public class OneAway {
 		}
 		else if(st1.length()==st2.length()){
 			return isOneReplaceAway(st1, st2);
-		} else if(st1.length()<st2.length()){
+		} else if(st1.length()+1==st2.length()){
 			return isOneInsertAway(st1, st2);
-		} else {
+		} else if(st2.length()+1==st1.length()){
 			return isOneInsertAway(st2, st1);
+		} else {
+			return false;
 		}
 	}
 	
