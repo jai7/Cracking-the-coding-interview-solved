@@ -1,26 +1,19 @@
 package com.chapter.arraysandstrings;
 
+import com.util.Util;
+
 public class RotateMatrix {
 
 	public static void main(String[] args) {
-		int[][] matrix = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
+		Integer[][] matrix = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
 		System.out.println("Before rotating the elements..");
-		printMatrix(matrix);
+		Util.printMatrix(matrix);
 		System.out.println("After rotating the elements..");
-		printMatrix(rotate(matrix));
+		Util.printMatrix(rotate(matrix));
 
 	}
 	
-	static void printMatrix(int[][] matrix) {
-		for (int i = 0; i < matrix.length; i++) {
-			for (int j = 0; j < matrix[0].length; j++) {
-				System.out.print(matrix[i][j] + " ");
-			}
-			System.out.println();
-		}
-	}
-	
-	static int[][] rotate(int[][] matrix) {
+	static Integer[][] rotate(Integer[][] matrix) {
 		// check if matrix is square
 		if (matrix != null && matrix.length == matrix[0].length) {
 			for (int row = 0; row <= matrix.length / 2; row++) {
@@ -32,7 +25,7 @@ public class RotateMatrix {
 				}
 			}
 		} else {
-			return new int[][] { { -1, -1 }, { -1, -1 } };
+			return new Integer[][] { { -1, -1 }, { -1, -1 } };
 		}
 		return matrix;
 	}
