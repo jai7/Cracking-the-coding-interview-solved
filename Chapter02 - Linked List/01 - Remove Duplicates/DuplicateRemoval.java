@@ -19,12 +19,13 @@ public class DuplicateRemoval {
 		list.head.next.next.next.next.next.next = new Node<Integer>(4);
 		System.out.println("Before deleting the duplicate elements from linked list :");
 		list.printList();
-		deleteDuplicates(list.head);
+//		deleteDuplicates(list.head);
+		deleteDuplicatesWithoutBuffer(list.head);
 		System.out.println("After deleting the duplicate elements from linked list :");
 		list.printList();
 	}
 	
-	static void deleteDuplicates(Node head){
+	public static void deleteDuplicates(Node head){
 		Set<Integer> set = new HashSet<Integer>();
 		Node<Integer> current = head;
 		Node<Integer> prev = null;
@@ -38,6 +39,22 @@ public class DuplicateRemoval {
 			current = current.next;
 		}
 		
+	}
+	
+	public static void deleteDuplicatesWithoutBuffer(Node head){
+		Node first = head, second = null, temp = null;
+		while(null != first && null != first.next){
+			second = first;
+			while(null != second.next){
+				if(second.next.getData().equals(first.getData())){
+					temp = second.next.next;
+					second.next = temp;
+				} else {
+					second = second.next;
+				}
+			}
+			first = first.next;
+		}
 	}
 
 }
