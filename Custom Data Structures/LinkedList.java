@@ -1,5 +1,6 @@
 package com.custom.dataStructures;
 
+import java.util.Collections;
 import java.util.Optional;
 
 import com.custom.dataStructures.LinkedList.Node;
@@ -54,5 +55,20 @@ public class LinkedList {
 			temp = temp.next;
 		}
 		return Optional.empty();
+	}
+	
+	public static LinkedList buildLinkedList(int[] data){
+		LinkedList list = new LinkedList();
+		if(null != data && -1 != data[0]){
+			list.head = new Node<Integer>(data[0]);
+		} else {
+			return null;
+		}
+		Node curr = list.head;
+		for(int i=1; i< data.length; i++){
+			curr.next = new Node<Integer>(data[i]);
+			curr = curr.next;
+		}
+		return list;
 	}
 }
