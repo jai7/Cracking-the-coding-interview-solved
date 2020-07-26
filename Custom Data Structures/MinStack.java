@@ -1,7 +1,5 @@
 package com.custom.dataStructures;
 
-import com.custom.dataStructures.Stack.StackNode;
-
 public class MinStack {
 	public class StackNode {
 		int data;

@@ -1,19 +1,11 @@
 package com.custom.dataStructures;
 
 public class Stack<T> {
-	public class StackNode<T> {
-		T data;
-		StackNode<T> next;
-
-		StackNode(T data) {
-			this.data = data;
-			this.next = null;
-		}
-	}
+	
 	private StackNode<T> top;
 
 	public void push(T data) {
-		StackNode<T> node = new StackNode(data);
+		StackNode<T> node = new StackNode<T>(data);
 		node.next = this.top;
 		this.top = node;
 	}
@@ -24,5 +16,9 @@ public class Stack<T> {
 		StackNode<T> node = top;
 		top = top.next;
 		return node;
+	}
+	
+	public boolean isEmpty(){
+		return this.top == null;
 	}
 }
