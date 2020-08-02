@@ -21,4 +21,16 @@ public class Stack<T> {
 	public boolean isEmpty(){
 		return this.top == null;
 	}
+	
+	public StackNode<T> peek(){
+		return this.top;
+	}
+	
+	public static <U> void printStack(Stack<U> st){
+		StackNode<U> node = st.peek();
+		while(null!=node){
+			System.out.println(node.getData());
+			node = node.next;
+		}
+	}
 }

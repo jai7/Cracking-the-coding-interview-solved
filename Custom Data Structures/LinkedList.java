@@ -44,8 +44,8 @@ public class LinkedList {
 		return i;
 	}
 	
-	public static Optional<Node> elementAtPos(Node head, int pos){
-		Node temp = head;
+	public static Optional<Node<Integer>> elementAtPos(Node<Integer> head, int pos){
+		Node<Integer> temp = head;
 		int i = 1;
 		while(null != temp){
 			if(i==pos){
